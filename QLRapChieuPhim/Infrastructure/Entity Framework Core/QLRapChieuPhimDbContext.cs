@@ -27,7 +27,7 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<LichChieu>()
-                .HasKey(table => new { table.PhimId, table.RapId });
+                .HasKey(table => new { table.MaPhim, table.MaRap });
 
            // modelBuilder.Entity<KeHoach>().HasOne(record => record.MaCum)
 

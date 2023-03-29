@@ -14,5 +14,6 @@ namespace QLRapChieuPhim.Entities
         //[MaxLength(5)]
         //[ForeignKey("MaCum")]
         public string MaCum { get; set; } = string.Empty;
-        public CumRap CumRap { get; set; }
+
     }
+}

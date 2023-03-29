@@ -4,7 +4,6 @@ namespace QLRapChieuPhim.Entities
 {
     public class CumRap
     {
-        [Key]
         [MaxLength(5)]
         public string MaCum { get; set; } = string.Empty;
         [Required]
@@ -14,6 +13,5 @@ namespace QLRapChieuPhim.Entities
         [MaxLength(100)]
         public string DiaChi { get; set; } = string.Empty;
 
-        public ICollection<Rap> Raps { get; set; }
     }
 }

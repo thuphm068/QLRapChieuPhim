@@ -12,7 +12,7 @@ namespace QLRapChieuPhim.Entities
         public int TongGhe { get; set; } = 0;
         [Required]
         //[MaxLength(5)]
-        //[ForeignKey("MaCum")]
+        [ForeignKey("MaCum")]
         public string MaCum { get; set; } = string.Empty;
 
     }

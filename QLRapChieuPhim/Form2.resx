@@ -61,10 +61,10 @@
     <value>False</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAC11JREFUeF7tW2lXVEca9tN8mvkLM3MymfkXM/MhIoYGF6SBuOOKCq5RQSXuGk1i
+        DAAACwwBP0AiyAAAC11JREFUeF7tW2lXVEca9tN8mvkLM3MymfkXM/MhIoYGF6SBuOOKCq5RQSXuGk1i
         RifJyRhcRtEgGte4B3FBcUFBEZF9p2XfUZOZ80491beqq++t3ujuoHN8z3kOfeiqd7tV71J1e9Q7ekfv
         KKxkt9t/E2mb9NcIW9yqiOi4fWNscfljou3V7HNXhM3+moN9xv/4dzZ7JsZiDuYabN4uGjdu3O+YYTPG
         RMddYn8HmXE0HDjnch4z/m63/9Zg/+bSaFvsn9kT/I4pPaAzKDgwnow3ZBji3hyKHJ/wR7Z8j7In9R+d
@@ -116,10 +116,10 @@
         QmCC
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAC11JREFUeF7tW2lXVEca9tN8mvkLM3MymfkXM/MhIoYGF6SBuOOKCq5RQSXuGk1i
+        DAAACwwBP0AiyAAAC11JREFUeF7tW2lXVEca9tN8mvkLM3MymfkXM/MhIoYGF6SBuOOKCq5RQSXuGk1i
         RifJyRhcRtEgGte4B3FBcUFBEZF9p2XfUZOZ80491beqq++t3ujuoHN8z3kOfeiqd7tV71J1e9Q7ekfv
         KKxkt9t/E2mb9NcIW9yqiOi4fWNscfljou3V7HNXhM3+moN9xv/4dzZ7JsZiDuYabN4uGjdu3O+YYTPG
         RMddYn8HmXE0HDjnch4z/m63/9Zg/+bSaFvsn9kT/I4pPaAzKDgwnow3ZBji3hyKHJ/wR7Z8j7In9R+d

@@ -1,3 +1,7 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using QLRapChieuPhim.Infrastructure.Repositories;
+
 namespace QLRapChieuPhim
 {
     internal static class Program
@@ -11,7 +15,18 @@ namespace QLRapChieuPhim
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var host = CreateHostBuilder().Build();
+            ServiceProvider = host.Services;
+
+            Application.Run(ServiceProvider.GetRequiredService<Form1>());
+        }
+        public static IServiceProvider? ServiceProvider { get; private set; }
+        static IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) => {
+                    services.AddScoped( typeof(IRepository<>), typeof(Repository<>) );
+                });
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QLRapChieuPhim.Infrastructure.Repositories
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly QLRapChieuPhimDbContext _qLRapChieuPhimDbContext;
         protected Repository(QLRapChieuPhimDbContext qLRapChieuPhimDbContext) { 

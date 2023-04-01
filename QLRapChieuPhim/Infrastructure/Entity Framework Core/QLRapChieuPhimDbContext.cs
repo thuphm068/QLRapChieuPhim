@@ -74,7 +74,7 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
              modelBuilder.Entity<PhimTheLoaiPhu>(b =>
             {
                 b.ToTable("PhimTheLoaiPhu");
-                b.HasOne<Phim>().WithMany().HasForeignKey(x => x.MaPhim).IsRequired(); ;
+                b.HasOne<Phim>().WithMany().HasForeignKey(x => x.MaPhim).IsRequired();
                 b.HasOne<TheLoai>().WithMany().HasForeignKey(x => x.MaTheLoai).IsRequired();
                 b.HasKey(record => new { record.MaTheLoai, record.MaPhim });
 

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace QLRapChieuPhim.Utilities;
 
-
 class PHTextBox : System.Windows.Forms.TextBox
 {
     System.Drawing.Color DefaultColor;

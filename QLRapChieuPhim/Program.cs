@@ -18,8 +18,8 @@ namespace QLRapChieuPhim
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            Application.Run(ServiceProvider.GetRequiredService<Form1>());
-        }
+            //Application.Run(ServiceProvider.GetRequiredService<Form1>());
+            Application.Run(new Login());        }
         public static IServiceProvider? ServiceProvider { get; private set; }
         static IHostBuilder CreateHostBuilder()
         {

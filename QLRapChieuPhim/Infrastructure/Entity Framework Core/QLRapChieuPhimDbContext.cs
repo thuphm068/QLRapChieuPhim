@@ -35,6 +35,8 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
                 b.Property(x => x.ChuoiMaSuat).IsRequired().HasMaxLength(100);
 
                 b.HasKey(record => new { record.MaPhim, record.MaRap });
+
+
             });
 
             modelBuilder.Entity<CumRap>(b =>
@@ -71,32 +73,35 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
                 b.Property(x => x.NgayKhoiChieu).IsRequired();
                 b.HasKey(x => x.Id);
             });
-             modelBuilder.Entity<PhimTheLoaiPhu>(b =>
-            {
-                b.ToTable("PhimTheLoaiPhu");
-                b.HasOne<Phim>().WithMany().HasForeignKey(x => x.MaPhim).IsRequired();
-                b.HasOne<TheLoai>().WithMany().HasForeignKey(x => x.MaTheLoai).IsRequired();
-                b.HasKey(record => new { record.MaTheLoai, record.MaPhim });
+            modelBuilder.Entity<PhimTheLoaiPhu>(b =>
+           {
+               b.ToTable("PhimTheLoaiPhu");
+               b.HasOne<Phim>().WithMany().HasForeignKey(x => x.MaPhim).IsRequired();
+               b.HasOne<TheLoai>().WithMany().HasForeignKey(x => x.MaTheLoai).IsRequired();
 
-            })
-                ; modelBuilder.Entity<SuatChieu>(b =>
-            {
-                b.ToTable("SuatChieu");
 
-                b.Property(x => x.GioBatDau).IsRequired();
-                b.Property(x => x.PhutBatDau).IsRequired();
-                b.HasKey(x => x.MaSuat);
-            });
-             modelBuilder.Entity<TheLoai>(b =>
-            {
-                b.ToTable("TheLoai");
-                b.Property(x => x.TenTheLoai).IsRequired();
-                b.HasKey(x => x.MaTheLoai);
+               b.HasKey(record => new { record.MaTheLoai, record.MaPhim });
 
-            });
-            
 
-         
+           });
+            modelBuilder.Entity<SuatChieu>(b =>
+           {
+               b.ToTable("SuatChieu");
+
+               b.Property(x => x.GioBatDau).IsRequired();
+               b.Property(x => x.PhutBatDau).IsRequired();
+               b.HasKey(x => x.MaSuat);
+           });
+            modelBuilder.Entity<TheLoai>(b =>
+           {
+               b.ToTable("TheLoai");
+               b.Property(x => x.TenTheLoai).IsRequired();
+               b.HasKey(x => x.MaTheLoai);
+
+           });
+
+
+
 
 
 

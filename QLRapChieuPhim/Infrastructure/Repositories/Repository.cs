@@ -12,8 +12,14 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly QLRapChieuPhimDbContext _qLRapChieuPhimDbContext;
-        protected Repository(QLRapChieuPhimDbContext qLRapChieuPhimDbContext) { 
+        protected Repository(QLRapChieuPhimDbContext qLRapChieuPhimDbContext)
+        {
             _qLRapChieuPhimDbContext = qLRapChieuPhimDbContext;
+
+            //if (_qLRapChieuPhimDbContext != null)
+            //    _qLRapChieuPhimDbContext = qLRapChieuPhimDbContext;
+            //else 
+            //    _qLRapChieuPhimDbContext = new QLRapChieuPhimDbContext();
         }
 
         public List<TEntity> GetAll()
@@ -22,7 +28,7 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
         }
         public async Task<TEntity?> GetById(string id)
         {
-             return await _qLRapChieuPhimDbContext.Set<TEntity>().FindAsync(id);
+            return await _qLRapChieuPhimDbContext.Set<TEntity>().FindAsync(id);
         }
         public async Task AddAsync(TEntity entity)
         {
@@ -37,7 +43,7 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
                 throw new Exception(ex.Message);
             }
         }
-        public void Update( TEntity entity)
+        public void Update(TEntity entity)
         {
             try
             {
@@ -54,7 +60,7 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
             try
             {
                 var deleteRecord = await this.GetById(id);
-          
+
                 _qLRapChieuPhimDbContext.Set<TEntity>().Remove(deleteRecord);
 
             }

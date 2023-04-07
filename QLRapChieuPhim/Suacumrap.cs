@@ -1,4 +1,7 @@
-﻿using System;
+﻿using QLRapChieuPhim.Entities;
+using QLRapChieuPhim.Infrastructure.Entity_Framework_Core;
+using QLRapChieuPhim.Infrastructure.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLRapChieuPhim.Extensions;
+
+
 
 namespace QLRapChieuPhim
 {
     public partial class Suacumrap : Form
     {
+        private static readonly QLRapChieuPhimDbContext qLRapChieuPhimDbContext = new QLRapChieuPhimDbContext();
+        Repository<CumRap> _cumraps = new Repository<CumRap>(qLRapChieuPhimDbContext);
+
+
+
+
         public Suacumrap()
         {
             InitializeComponent();
@@ -19,6 +31,9 @@ namespace QLRapChieuPhim
 
         private void Suacumrap_Load(object sender, EventArgs e)
         {
+            textBox10.Init("Nhập mã cụm");
+            textBox11.Init("Nhập tên cụm");
+            textBox12.Init("Nhập địa chỉ");
 
         }
 
@@ -31,11 +46,21 @@ namespace QLRapChieuPhim
 
         private void button13_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cập nhật thành công!");
 
-            Form2 otherForm = new Form2();
+            
+            var cumrap = new CumRap
+            {
+                MaCum = textBox10.Text,
+                TenCum = textBox11.Text,
+                DiaChi = textBox12.Text,
+            };
+
+            var result = _cumraps.Add(cumrap);
+
             this.Hide();
-            otherForm.Show();
+            if (result is true)
+                MessageBox.Show("Cập nhật thành công!");
+            Login.otherForm.Show();
         }
     }
 }

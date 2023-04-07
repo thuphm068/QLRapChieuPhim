@@ -217,6 +217,7 @@
             Name = "Suaphim";
             Text = "Suaphim";
             FormClosed += Suaphim_FormClosed;
+            Load += Suaphim_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -134,6 +134,7 @@
             Name = "Suarap";
             Text = "Suarap";
             FormClosed += Suarap_FormClosed;
+            Load += Suarap_Load;
             ResumeLayout(false);
             PerformLayout();
         }

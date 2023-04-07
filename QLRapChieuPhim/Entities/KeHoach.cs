@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QLRapChieuPhim.Entities
 {
-    public class KeHoach : Entity
+    public class KeHoach
     {
         
 
@@ -20,7 +20,7 @@ namespace QLRapChieuPhim.Entities
         [Required]
         public DateTime NgayKetThuc { get; set; } = DateTime.Now;
         [MaxLength(100)]
-        public string GhiChu { get; set; } = string.Empty;
+        public string? GhiChu { get; set; } = string.Empty;
 
 
     }

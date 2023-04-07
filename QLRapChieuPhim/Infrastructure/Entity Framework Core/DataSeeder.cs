@@ -24,7 +24,17 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
                 };
                 context.AddRange(cumraplist);
                 context.SaveChanges();
+            } 
+            var cumraplist1 = new List<TheLoai>
+                {
+                    new TheLoai { MaTheLoai = "1", TenTheLoai = "Afghanistan" },
+                    new TheLoai { MaTheLoai = "2", TenTheLoai = "Albania" },
+                    new TheLoai { MaTheLoai = "3", TenTheLoai = "Algeria" },
+                    new TheLoai { MaTheLoai = "4", TenTheLoai = "Andorra" },
+                    new TheLoai { MaTheLoai = "5", TenTheLoai = "Angola" },
+                };
+                context.AddRange(cumraplist1);
+                context.SaveChanges();
             }
         }
     }
-}

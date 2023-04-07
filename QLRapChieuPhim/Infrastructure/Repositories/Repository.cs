@@ -11,8 +11,8 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly QLRapChieuPhimDbContext _qLRapChieuPhimDbContext;
-        protected Repository(QLRapChieuPhimDbContext qLRapChieuPhimDbContext)
+        protected readonly QLRapChieuPhimDbContext _qLRapChieuPhimDbContext;
+        public Repository(QLRapChieuPhimDbContext qLRapChieuPhimDbContext)
         {
             _qLRapChieuPhimDbContext = qLRapChieuPhimDbContext;
 
@@ -30,28 +30,35 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
         {
             return await _qLRapChieuPhimDbContext.Set<TEntity>().FindAsync(id);
         }
-        public async Task AddAsync(TEntity entity)
+        public bool Add(TEntity entity)
         {
             try
             {
-                var result = await _qLRapChieuPhimDbContext.Set<TEntity>().AddAsync(entity);
+                var result =  _qLRapChieuPhimDbContext.Set<TEntity>().Add(entity);
 
                 _qLRapChieuPhimDbContext.SaveChanges();
+
+                return true;
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+                return false;
                 throw new Exception(ex.Message);
             }
         }
-        public void Update(TEntity entity)
+        public bool Update(TEntity entity)
         {
             try
             {
                 var updateEntity = _qLRapChieuPhimDbContext.Set<TEntity>().Update(entity);
                 _qLRapChieuPhimDbContext.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+                return false;
                 throw new Exception(ex.Message);
             }
         }
@@ -62,7 +69,21 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
                 var deleteRecord = await this.GetById(id);
 
                 _qLRapChieuPhimDbContext.Set<TEntity>().Remove(deleteRecord);
+                _qLRapChieuPhimDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
+        public void Delete(TEntity entity)
+        {
+            try
+            {
+               
+                _qLRapChieuPhimDbContext.Set<TEntity>().Remove(entity);
+                _qLRapChieuPhimDbContext.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -38,6 +38,7 @@
             label39 = new Label();
             label38 = new Label();
             label37 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // button23
@@ -61,21 +62,21 @@
             // 
             // textBox19
             // 
-            textBox19.Location = new Point(503, 487);
+            textBox19.Location = new Point(61, 182);
             textBox19.Name = "textBox19";
             textBox19.Size = new Size(404, 39);
             textBox19.TabIndex = 27;
             // 
             // textBox18
             // 
-            textBox18.Location = new Point(503, 379);
+            textBox18.Location = new Point(58, 419);
             textBox18.Name = "textBox18";
             textBox18.Size = new Size(404, 39);
             textBox18.TabIndex = 26;
             // 
             // textBox17
             // 
-            textBox17.Location = new Point(503, 290);
+            textBox17.Location = new Point(58, 297);
             textBox17.Name = "textBox17";
             textBox17.Size = new Size(404, 39);
             textBox17.TabIndex = 25;
@@ -94,17 +95,17 @@
             // 
             label40.AutoSize = true;
             label40.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label40.Location = new Point(500, 452);
+            label40.Location = new Point(58, 147);
             label40.Name = "label40";
-            label40.Size = new Size(122, 32);
+            label40.Size = new Size(136, 32);
             label40.TabIndex = 23;
-            label40.Text = "Lịch chiếu";
+            label40.Text = "Ngày chiếu";
             // 
             // label39
             // 
             label39.AutoSize = true;
             label39.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label39.Location = new Point(499, 344);
+            label39.Location = new Point(54, 384);
             label39.Name = "label39";
             label39.Size = new Size(92, 32);
             label39.TabIndex = 22;
@@ -114,7 +115,7 @@
             // 
             label38.AutoSize = true;
             label38.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label38.Location = new Point(499, 255);
+            label38.Location = new Point(54, 262);
             label38.Name = "label38";
             label38.Size = new Size(111, 32);
             label38.TabIndex = 21;
@@ -124,17 +125,26 @@
             // 
             label37.AutoSize = true;
             label37.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label37.Location = new Point(499, 187);
+            label37.Location = new Point(499, 72);
             label37.Name = "label37";
             label37.Size = new Size(346, 37);
             label37.TabIndex = 20;
             label37.Text = "Thêm lịch chiếu phim mới";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(61, 464);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(242, 40);
+            comboBox1.TabIndex = 30;
             // 
             // Sualichchieu
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1474, 929);
+            Controls.Add(comboBox1);
             Controls.Add(button23);
             Controls.Add(textBox20);
             Controls.Add(textBox19);
@@ -148,6 +158,7 @@
             Name = "Sualichchieu";
             Text = "Sualichchieu";
             FormClosed += Sualichchieu_FormClosed;
+            Load += Sualichchieu_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,5 +175,6 @@
         private Label label39;
         private Label label38;
         private Label label37;
+        private ComboBox comboBox1;
     }
 }

@@ -10,8 +10,9 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
     {
         public List<TEntity> GetAll();
         public Task<TEntity?> GetById(string id);
-        public Task AddAsync(TEntity entity);
-        public void Update(TEntity entity);
+        public bool Add(TEntity entity);
+        public bool Update(TEntity entity);
         public Task Delete(string id);
+        public void Delete(TEntity entity);
     }
 }

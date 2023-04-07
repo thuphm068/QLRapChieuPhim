@@ -1,4 +1,8 @@
-﻿using System;
+﻿using QLRapChieuPhim.Entities;
+using QLRapChieuPhim.Infrastructure.Entity_Framework_Core;
+using QLRapChieuPhim.Infrastructure.Repositories;
+using QLRapChieuPhim.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +11,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLRapChieuPhim
 {
     public partial class Suarap : Form
     {
+
+        private static readonly QLRapChieuPhimDbContext qLRapChieuPhimDbContext = new QLRapChieuPhimDbContext();
+        Repository<Rap> _raps = new Repository<Rap>(qLRapChieuPhimDbContext);
+
         public Suarap()
         {
             InitializeComponent();
@@ -19,11 +28,23 @@ namespace QLRapChieuPhim
 
         private void button19_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cập nhật thành công!");
 
-            Form2 otherForm = new Form2();
+            var rap = new Rap
+            {
+                MaRap = textBox13.Text,
+                TongGhe = Int32.Parse(textBox14.Text),
+                MaCum = textBox15.Text,
+
+            };
+
+            var result = _raps.Add(rap);
+
             this.Hide();
-            otherForm.Show();
+            if (result is true)
+                MessageBox.Show("Cập nhật thành công!");
+            Login.otherForm.Show();
+
+
         }
 
         private void Suarap_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,9 +82,12 @@ namespace QLRapChieuPhim
         {
         }
 
-        public static implicit operator Suarap(Sualichchieu v)
+        private void Suarap_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            textBox13.Init("Nhậ mã rạp");
+            textBox14.Init("Nhập tổng ghế");
+            textBox15.Init("Nhập mã cụm");
+
         }
     }
 }

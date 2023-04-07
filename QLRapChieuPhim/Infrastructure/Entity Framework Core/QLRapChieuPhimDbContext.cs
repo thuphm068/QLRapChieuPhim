@@ -12,6 +12,7 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
         public DbSet<LichChieu> LichChieus { get; set; }
         public DbSet<Phim> Phims { get; set; }
         public DbSet<PhimTheLoaiPhu> PhimTheLoaiPhus { get; set; }
+        public DbSet<TaiKhoanDangNhap> TaiKhoanDangNhaps { get; set; }
         public DbSet<Rap> Raps { get; set; }
         public DbSet<SuatChieu> Suats { get; set; }
         public DbSet<TheLoai> TheLoais { get; set; }
@@ -42,8 +43,8 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
             modelBuilder.Entity<CumRap>(b =>
             {
                 b.ToTable("CumRap");
-                b.Property(x => x.TenCum).IsRequired().HasMaxLength(50);
-                b.Property(x => x.DiaChi).IsRequired().HasMaxLength(100);
+                b.Property(x => x.TenCum).IsRequired().HasMaxLength(50).IsUnicode();
+                b.Property(x => x.DiaChi).IsRequired().HasMaxLength(100).IsUnicode();
                 b.HasKey(x => x.MaCum);
             });
 
@@ -71,7 +72,7 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
                 b.HasOne<Phim>().WithMany().HasForeignKey(x => x.MaPhim).IsRequired(); ;
                 b.Property(x => x.NgayKetThuc).IsRequired();
                 b.Property(x => x.NgayKhoiChieu).IsRequired();
-                b.HasKey(x => x.Id);
+                b.HasKey(x => new {x.MaPhim,x.NgayKhoiChieu,x.MaCum,x.NgayKetThuc});
             });
             modelBuilder.Entity<PhimTheLoaiPhu>(b =>
            {
@@ -97,6 +98,12 @@ namespace QLRapChieuPhim.Infrastructure.Entity_Framework_Core
                b.ToTable("TheLoai");
                b.Property(x => x.TenTheLoai).IsRequired();
                b.HasKey(x => x.MaTheLoai);
+
+           });
+            modelBuilder.Entity<TaiKhoanDangNhap>(b =>
+           {
+               b.ToTable("TaiKhoanDangNhap");
+               b.HasKey(x => x.MaNV);
 
            });
 

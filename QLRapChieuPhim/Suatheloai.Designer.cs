@@ -91,6 +91,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(442, 39);
             textBox2.TabIndex = 5;
+            textBox2.Text = " ";
             // 
             // Suatheloai
             // 

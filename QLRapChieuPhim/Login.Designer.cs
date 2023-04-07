@@ -38,6 +38,16 @@
             linkLabel1 = new LinkLabel();
             SuspendLayout();
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(566, 478);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(191, 32);
+            linkLabel1.TabIndex = 34;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Quên mật khẩu?";
+            // 
             // button1
             // 
             button1.BackColor = Color.LightGray;
@@ -60,16 +70,6 @@
             label3.Size = new Size(161, 32);
             label3.TabIndex = 35;
             label3.Text = "ĐĂNG NHẬP";
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(566, 478);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(191, 32);
-            linkLabel1.TabIndex = 34;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Quên mật khẩu?";
             // 
             // label2
             // 
@@ -123,6 +123,7 @@
             Controls.Add(textBox1);
             Name = "Login";
             Text = "Login";
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }

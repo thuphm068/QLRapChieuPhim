@@ -11,8 +11,8 @@ namespace QLRapChieuPhim.Entities
         [Required]
         public int TongGhe { get; set; } = 0;
         [Required]
-        //[MaxLength(5)]
-        [ForeignKey("MaCum")]
+        [MaxLength(5)]
+        //[ForeignKey("MaCum")]
         public string MaCum { get; set; } = string.Empty;
 
     }

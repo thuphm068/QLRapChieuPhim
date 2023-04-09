@@ -39,7 +39,7 @@ namespace QLRapChieuPhim
 
         private void Suacumrap_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form2 otherForm = new Form2();
+            HomePage otherForm = new HomePage();
             this.Hide();
             otherForm.Show();
         }

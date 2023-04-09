@@ -30,8 +30,6 @@
         {
             button23 = new Button();
             textBox20 = new TextBox();
-            textBox19 = new TextBox();
-            textBox18 = new TextBox();
             textBox17 = new TextBox();
             label41 = new Label();
             label40 = new Label();
@@ -39,6 +37,7 @@
             label38 = new Label();
             label37 = new Label();
             comboBox1 = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
             SuspendLayout();
             // 
             // button23
@@ -55,37 +54,24 @@
             // 
             // textBox20
             // 
-            textBox20.Location = new Point(503, 583);
+            textBox20.Location = new Point(501, 560);
             textBox20.Name = "textBox20";
             textBox20.Size = new Size(404, 39);
             textBox20.TabIndex = 28;
             // 
-            // textBox19
-            // 
-            textBox19.Location = new Point(61, 182);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(404, 39);
-            textBox19.TabIndex = 27;
-            // 
-            // textBox18
-            // 
-            textBox18.Location = new Point(58, 419);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(404, 39);
-            textBox18.TabIndex = 26;
-            // 
             // textBox17
             // 
-            textBox17.Location = new Point(58, 297);
+            textBox17.Location = new Point(505, 319);
             textBox17.Name = "textBox17";
             textBox17.Size = new Size(404, 39);
             textBox17.TabIndex = 25;
+            textBox17.TextChanged += textBox17_TextChanged;
             // 
             // label41
             // 
             label41.AutoSize = true;
             label41.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label41.Location = new Point(503, 548);
+            label41.Location = new Point(501, 525);
             label41.Name = "label41";
             label41.Size = new Size(171, 32);
             label41.TabIndex = 24;
@@ -95,7 +81,7 @@
             // 
             label40.AutoSize = true;
             label40.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label40.Location = new Point(58, 147);
+            label40.Location = new Point(498, 399);
             label40.Name = "label40";
             label40.Size = new Size(136, 32);
             label40.TabIndex = 23;
@@ -105,7 +91,7 @@
             // 
             label39.AutoSize = true;
             label39.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label39.Location = new Point(54, 384);
+            label39.Location = new Point(505, 169);
             label39.Name = "label39";
             label39.Size = new Size(92, 32);
             label39.TabIndex = 22;
@@ -115,7 +101,7 @@
             // 
             label38.AutoSize = true;
             label38.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label38.Location = new Point(54, 262);
+            label38.Location = new Point(501, 284);
             label38.Name = "label38";
             label38.Size = new Size(111, 32);
             label38.TabIndex = 21;
@@ -125,7 +111,7 @@
             // 
             label37.AutoSize = true;
             label37.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label37.Location = new Point(499, 72);
+            label37.Location = new Point(527, 77);
             label37.Name = "label37";
             label37.Size = new Size(346, 37);
             label37.TabIndex = 20;
@@ -134,21 +120,29 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(61, 464);
+            comboBox1.Location = new Point(505, 205);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(242, 40);
             comboBox1.TabIndex = 30;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(501, 444);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(400, 39);
+            dateTimePicker1.TabIndex = 31;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // Sualichchieu
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1474, 929);
+            Controls.Add(dateTimePicker1);
             Controls.Add(comboBox1);
             Controls.Add(button23);
             Controls.Add(textBox20);
-            Controls.Add(textBox19);
-            Controls.Add(textBox18);
             Controls.Add(textBox17);
             Controls.Add(label41);
             Controls.Add(label40);
@@ -167,8 +161,6 @@
 
         private Button button23;
         private TextBox textBox20;
-        private TextBox textBox19;
-        private TextBox textBox18;
         private TextBox textBox17;
         private Label label41;
         private Label label40;
@@ -176,5 +168,6 @@
         private Label label38;
         private Label label37;
         private ComboBox comboBox1;
+        private DateTimePicker dateTimePicker1;
     }
 }

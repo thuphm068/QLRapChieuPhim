@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace QLRapChieuPhim
 {
-    partial class Form2
+    partial class HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -34,10 +34,29 @@ namespace QLRapChieuPhim
         {
             components = new System.ComponentModel.Container();
             Panel panel4;
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
+            panel9lichchieu = new Panel();
+            button18 = new Button();
+            textBox4 = new TextBox();
+            button22 = new Button();
+            button21 = new Button();
+            label36 = new Label();
+            label34 = new Label();
+            dataGridView5 = new DataGridView();
+            Column19 = new DataGridViewCheckBoxColumn();
+            maPhimDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            maRapDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            ngayChieuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            chuoiMaSuatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lichChieuBindingSource = new BindingSource(components);
             panel10phim = new Panel();
+            dataGridView7 = new DataGridView();
+            dataGridViewCheckBoxColumn1 = new DataGridViewCheckBoxColumn();
+            maTheLoaiDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            maPhimDataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            phimTheLoaiPhuBindingSource = new BindingSource(components);
             button19 = new Button();
             label3 = new Label();
             textBox2 = new TextBox();
@@ -83,6 +102,9 @@ namespace QLRapChieuPhim
             button9 = new Button();
             textBox3 = new TextBox();
             button6 = new Button();
+            button7 = new Button();
+            label11 = new Label();
+            label7 = new Label();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewCheckBoxColumn();
             maPhimDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -91,9 +113,6 @@ namespace QLRapChieuPhim
             ngayKetThucDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ghiChuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             keHoachBindingSource = new BindingSource(components);
-            button7 = new Button();
-            label11 = new Label();
-            label7 = new Label();
             panel5theloai = new Panel();
             button13 = new Button();
             textBox1 = new TextBox();
@@ -106,21 +125,6 @@ namespace QLRapChieuPhim
             theLoaiBindingSource = new BindingSource(components);
             label2 = new Label();
             label1 = new Label();
-            panel9lichchieu = new Panel();
-            button18 = new Button();
-            textBox4 = new TextBox();
-            button22 = new Button();
-            button21 = new Button();
-            label36 = new Label();
-            label34 = new Label();
-            dataGridView5 = new DataGridView();
-            Column19 = new DataGridViewCheckBoxColumn();
-            maPhimDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            maRapDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            ngayChieuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            chuoiMaSuatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lichChieuBindingSource = new BindingSource(components);
-            phimTheLoaiPhuBindingSource = new BindingSource(components);
             tabPage6 = new TabPage();
             button15 = new Button();
             button14 = new Button();
@@ -151,7 +155,12 @@ namespace QLRapChieuPhim
             phimBindingSource1 = new BindingSource(components);
             panel4 = new Panel();
             panel4.SuspendLayout();
+            panel9lichchieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lichChieuBindingSource).BeginInit();
             panel10phim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)phimTheLoaiPhuBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)phimBindingSource).BeginInit();
             panel8rap.SuspendLayout();
@@ -166,10 +175,6 @@ namespace QLRapChieuPhim
             panel5theloai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView7tl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)theLoaiBindingSource).BeginInit();
-            panel9lichchieu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lichChieuBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)phimTheLoaiPhuBindingSource).BeginInit();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             tabPage7.SuspendLayout();
@@ -183,21 +188,163 @@ namespace QLRapChieuPhim
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(224, 224, 224);
+            panel4.Controls.Add(panel10phim);
+            panel4.Controls.Add(panel8rap);
             panel4.Controls.Add(panel7cumrap);
             panel4.Controls.Add(panel6kh);
             panel4.Controls.Add(panel5theloai);
             panel4.Controls.Add(panel9lichchieu);
-            panel4.Controls.Add(panel10phim);
-            panel4.Controls.Add(panel8rap);
             panel4.Location = new Point(370, 131);
             panel4.Name = "panel4";
             panel4.Size = new Size(1524, 863);
             panel4.TabIndex = 18;
             panel4.Paint += panel4_Paint;
             // 
+            // panel9lichchieu
+            // 
+            panel9lichchieu.BackColor = Color.FromArgb(224, 224, 224);
+            panel9lichchieu.Controls.Add(button18);
+            panel9lichchieu.Controls.Add(textBox4);
+            panel9lichchieu.Controls.Add(button22);
+            panel9lichchieu.Controls.Add(button21);
+            panel9lichchieu.Controls.Add(label36);
+            panel9lichchieu.Controls.Add(label34);
+            panel9lichchieu.Controls.Add(dataGridView5);
+            panel9lichchieu.Location = new Point(6, 6);
+            panel9lichchieu.Name = "panel9lichchieu";
+            panel9lichchieu.Size = new Size(1505, 857);
+            panel9lichchieu.TabIndex = 2;
+            panel9lichchieu.Visible = false;
+            panel9lichchieu.Paint += panel9lichchieu_Paint;
+            // 
+            // button18
+            // 
+            button18.BackColor = Color.FromArgb(240, 132, 132);
+            button18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button18.Location = new Point(1018, 110);
+            button18.Name = "button18";
+            button18.Size = new Size(190, 55);
+            button18.TabIndex = 9;
+            button18.Text = "Chỉnh sửa";
+            button18.UseVisualStyleBackColor = false;
+            button18.Click += button18_Click_1;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(470, 115);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(300, 39);
+            textBox4.TabIndex = 8;
+            textBox4.TextChanged += textBox4_TextChanged;
+            // 
+            // button22
+            // 
+            button22.BackColor = Color.FromArgb(240, 132, 132);
+            button22.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button22.Location = new Point(808, 110);
+            button22.Name = "button22";
+            button22.Size = new Size(185, 55);
+            button22.TabIndex = 7;
+            button22.Text = "Thêm";
+            button22.UseVisualStyleBackColor = false;
+            button22.Click += button22_Click;
+            // 
+            // button21
+            // 
+            button21.BackColor = Color.FromArgb(240, 132, 132);
+            button21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button21.Location = new Point(1236, 111);
+            button21.Name = "button21";
+            button21.Size = new Size(185, 55);
+            button21.TabIndex = 6;
+            button21.Text = "Xóa";
+            button21.UseVisualStyleBackColor = false;
+            button21.Click += button21_Click;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label36.Location = new Point(54, 129);
+            label36.Name = "label36";
+            label36.Size = new Size(267, 37);
+            label36.TabIndex = 4;
+            label36.Text = "Danh sách lịch chiếu";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label34.Location = new Point(54, 49);
+            label34.Name = "label34";
+            label34.Size = new Size(195, 45);
+            label34.TabIndex = 0;
+            label34.Text = "LỊCH CHIẾU";
+            // 
+            // dataGridView5
+            // 
+            dataGridView5.AutoGenerateColumns = false;
+            dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { Column19, maPhimDataGridViewTextBoxColumn1, maRapDataGridViewTextBoxColumn1, ngayChieuDataGridViewTextBoxColumn, chuoiMaSuatDataGridViewTextBoxColumn });
+            dataGridView5.DataSource = lichChieuBindingSource;
+            dataGridView5.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView5.Location = new Point(54, 195);
+            dataGridView5.Name = "dataGridView5";
+            dataGridView5.RowHeadersWidth = 82;
+            dataGridView5.RowTemplate.Height = 41;
+            dataGridView5.Size = new Size(1364, 550);
+            dataGridView5.TabIndex = 5;
+            dataGridView5.CellContentClick += dataGridView5_CellContentClick;
+            // 
+            // Column19
+            // 
+            Column19.HeaderText = "";
+            Column19.MinimumWidth = 10;
+            Column19.Name = "Column19";
+            Column19.Width = 50;
+            // 
+            // maPhimDataGridViewTextBoxColumn1
+            // 
+            maPhimDataGridViewTextBoxColumn1.DataPropertyName = "MaPhim";
+            maPhimDataGridViewTextBoxColumn1.HeaderText = "Mã phim";
+            maPhimDataGridViewTextBoxColumn1.MaxInputLength = 10;
+            maPhimDataGridViewTextBoxColumn1.MinimumWidth = 10;
+            maPhimDataGridViewTextBoxColumn1.Name = "maPhimDataGridViewTextBoxColumn1";
+            maPhimDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // maRapDataGridViewTextBoxColumn1
+            // 
+            maRapDataGridViewTextBoxColumn1.DataPropertyName = "MaRap";
+            maRapDataGridViewTextBoxColumn1.HeaderText = "Mã rạp";
+            maRapDataGridViewTextBoxColumn1.MaxInputLength = 5;
+            maRapDataGridViewTextBoxColumn1.MinimumWidth = 10;
+            maRapDataGridViewTextBoxColumn1.Name = "maRapDataGridViewTextBoxColumn1";
+            maRapDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // ngayChieuDataGridViewTextBoxColumn
+            // 
+            ngayChieuDataGridViewTextBoxColumn.DataPropertyName = "NgayChieu";
+            ngayChieuDataGridViewTextBoxColumn.HeaderText = "Ngày chiếu";
+            ngayChieuDataGridViewTextBoxColumn.MinimumWidth = 10;
+            ngayChieuDataGridViewTextBoxColumn.Name = "ngayChieuDataGridViewTextBoxColumn";
+            ngayChieuDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // chuoiMaSuatDataGridViewTextBoxColumn
+            // 
+            chuoiMaSuatDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            chuoiMaSuatDataGridViewTextBoxColumn.DataPropertyName = "ChuoiMaSuat";
+            chuoiMaSuatDataGridViewTextBoxColumn.HeaderText = "Chuỗi mã suất";
+            chuoiMaSuatDataGridViewTextBoxColumn.MinimumWidth = 10;
+            chuoiMaSuatDataGridViewTextBoxColumn.Name = "chuoiMaSuatDataGridViewTextBoxColumn";
+            // 
+            // lichChieuBindingSource
+            // 
+            lichChieuBindingSource.DataSource = typeof(Entities.LichChieu);
+            // 
             // panel10phim
             // 
             panel10phim.BackColor = Color.FromArgb(224, 224, 224);
+            panel10phim.Controls.Add(dataGridView7);
             panel10phim.Controls.Add(button19);
             panel10phim.Controls.Add(label3);
             panel10phim.Controls.Add(textBox2);
@@ -210,6 +357,47 @@ namespace QLRapChieuPhim
             panel10phim.Size = new Size(1519, 879);
             panel10phim.TabIndex = 2;
             panel10phim.Visible = false;
+            // 
+            // dataGridView7
+            // 
+            dataGridView7.AutoGenerateColumns = false;
+            dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView7.Columns.AddRange(new DataGridViewColumn[] { dataGridViewCheckBoxColumn1, maTheLoaiDataGridViewTextBoxColumn1, maPhimDataGridViewTextBoxColumn3 });
+            dataGridView7.DataSource = phimTheLoaiPhuBindingSource;
+            dataGridView7.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView7.Location = new Point(1205, 207);
+            dataGridView7.Name = "dataGridView7";
+            dataGridView7.RowHeadersWidth = 82;
+            dataGridView7.RowTemplate.Height = 41;
+            dataGridView7.Size = new Size(293, 173);
+            dataGridView7.TabIndex = 9;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            dataGridViewCheckBoxColumn1.HeaderText = "";
+            dataGridViewCheckBoxColumn1.MinimumWidth = 10;
+            dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            dataGridViewCheckBoxColumn1.Width = 50;
+            // 
+            // maTheLoaiDataGridViewTextBoxColumn1
+            // 
+            maTheLoaiDataGridViewTextBoxColumn1.DataPropertyName = "MaTheLoai";
+            maTheLoaiDataGridViewTextBoxColumn1.HeaderText = "Mã TL phụ";
+            maTheLoaiDataGridViewTextBoxColumn1.MinimumWidth = 10;
+            maTheLoaiDataGridViewTextBoxColumn1.Name = "maTheLoaiDataGridViewTextBoxColumn1";
+            maTheLoaiDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // maPhimDataGridViewTextBoxColumn3
+            // 
+            maPhimDataGridViewTextBoxColumn3.DataPropertyName = "MaPhim";
+            maPhimDataGridViewTextBoxColumn3.HeaderText = "Mã Phim";
+            maPhimDataGridViewTextBoxColumn3.MinimumWidth = 10;
+            maPhimDataGridViewTextBoxColumn3.Name = "maPhimDataGridViewTextBoxColumn3";
+            maPhimDataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // phimTheLoaiPhuBindingSource
+            // 
+            phimTheLoaiPhuBindingSource.DataSource = typeof(Entities.PhimTheLoaiPhu);
             // 
             // button19
             // 
@@ -235,9 +423,9 @@ namespace QLRapChieuPhim
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(510, 127);
+            textBox2.Location = new Point(470, 127);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(250, 39);
+            textBox2.Size = new Size(300, 39);
             textBox2.TabIndex = 6;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -276,8 +464,9 @@ namespace QLRapChieuPhim
             dataGridView6.Name = "dataGridView6";
             dataGridView6.RowHeadersWidth = 82;
             dataGridView6.RowTemplate.Height = 41;
-            dataGridView6.Size = new Size(1390, 573);
+            dataGridView6.Size = new Size(1135, 570);
             dataGridView6.TabIndex = 3;
+            dataGridView6.CellContentClick += dataGridView6_CellClick;
             // 
             // Column26
             // 
@@ -292,7 +481,7 @@ namespace QLRapChieuPhim
             maPhimDataGridViewTextBoxColumn2.HeaderText = "Mã phim";
             maPhimDataGridViewTextBoxColumn2.MinimumWidth = 10;
             maPhimDataGridViewTextBoxColumn2.Name = "maPhimDataGridViewTextBoxColumn2";
-            maPhimDataGridViewTextBoxColumn2.Width = 170;
+            maPhimDataGridViewTextBoxColumn2.Width = 180;
             // 
             // tenPhimDataGridViewTextBoxColumn
             // 
@@ -308,7 +497,7 @@ namespace QLRapChieuPhim
             maTheLoaiChinhDataGridViewTextBoxColumn.HeaderText = "Mã thể loại chính";
             maTheLoaiChinhDataGridViewTextBoxColumn.MinimumWidth = 10;
             maTheLoaiChinhDataGridViewTextBoxColumn.Name = "maTheLoaiChinhDataGridViewTextBoxColumn";
-            maTheLoaiChinhDataGridViewTextBoxColumn.Width = 250;
+            maTheLoaiChinhDataGridViewTextBoxColumn.Width = 150;
             // 
             // thoiLuongDataGridViewTextBoxColumn
             // 
@@ -316,7 +505,7 @@ namespace QLRapChieuPhim
             thoiLuongDataGridViewTextBoxColumn.HeaderText = "Thời lượng";
             thoiLuongDataGridViewTextBoxColumn.MinimumWidth = 10;
             thoiLuongDataGridViewTextBoxColumn.Name = "thoiLuongDataGridViewTextBoxColumn";
-            thoiLuongDataGridViewTextBoxColumn.Width = 180;
+            thoiLuongDataGridViewTextBoxColumn.Width = 120;
             // 
             // coLa3DDataGridViewCheckBoxColumn
             // 
@@ -324,7 +513,7 @@ namespace QLRapChieuPhim
             coLa3DDataGridViewCheckBoxColumn.HeaderText = "3D";
             coLa3DDataGridViewCheckBoxColumn.MinimumWidth = 10;
             coLa3DDataGridViewCheckBoxColumn.Name = "coLa3DDataGridViewCheckBoxColumn";
-            coLa3DDataGridViewCheckBoxColumn.Width = 150;
+            coLa3DDataGridViewCheckBoxColumn.Width = 50;
             // 
             // coLongTiengDataGridViewCheckBoxColumn
             // 
@@ -332,7 +521,7 @@ namespace QLRapChieuPhim
             coLongTiengDataGridViewCheckBoxColumn.HeaderText = "Lồng tiếng";
             coLongTiengDataGridViewCheckBoxColumn.MinimumWidth = 10;
             coLongTiengDataGridViewCheckBoxColumn.Name = "coLongTiengDataGridViewCheckBoxColumn";
-            coLongTiengDataGridViewCheckBoxColumn.Width = 150;
+            coLongTiengDataGridViewCheckBoxColumn.Width = 90;
             // 
             // phimBindingSource
             // 
@@ -391,9 +580,9 @@ namespace QLRapChieuPhim
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(497, 113);
+            textBox5.Location = new Point(465, 113);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(250, 39);
+            textBox5.Size = new Size(300, 39);
             textBox5.TabIndex = 8;
             textBox5.TextChanged += textBox5_TextChanged;
             // 
@@ -415,14 +604,14 @@ namespace QLRapChieuPhim
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView4.Columns.AddRange(new DataGridViewColumn[] { Column15, maRapDataGridViewTextBoxColumn, tongGheDataGridViewTextBoxColumn, maCumDataGridViewTextBoxColumn1 });
             dataGridView4.DataSource = rapBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView4.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView4.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView4.Location = new Point(65, 193);
             dataGridView4.Name = "dataGridView4";
@@ -518,9 +707,9 @@ namespace QLRapChieuPhim
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(469, 145);
+            textBox6.Location = new Point(409, 145);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(250, 39);
+            textBox6.Size = new Size(300, 39);
             textBox6.TabIndex = 8;
             textBox6.TextChanged += textBox6_TextChanged;
             // 
@@ -631,10 +820,10 @@ namespace QLRapChieuPhim
             panel6kh.Controls.Add(button9);
             panel6kh.Controls.Add(textBox3);
             panel6kh.Controls.Add(button6);
-            panel6kh.Controls.Add(dataGridView1);
             panel6kh.Controls.Add(button7);
             panel6kh.Controls.Add(label11);
             panel6kh.Controls.Add(label7);
+            panel6kh.Controls.Add(dataGridView1);
             panel6kh.Location = new Point(22, 27);
             panel6kh.Name = "panel6kh";
             panel6kh.Size = new Size(1449, 800);
@@ -655,9 +844,9 @@ namespace QLRapChieuPhim
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(480, 98);
+            textBox3.Location = new Point(460, 98);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(280, 39);
+            textBox3.Size = new Size(300, 39);
             textBox3.TabIndex = 29;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
@@ -673,6 +862,41 @@ namespace QLRapChieuPhim
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(240, 132, 132);
+            button7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button7.Location = new Point(1227, 90);
+            button7.Name = "button7";
+            button7.Size = new Size(195, 55);
+            button7.TabIndex = 26;
+            button7.Text = "Xóa";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(18, 100);
+            label11.Name = "label11";
+            label11.Size = new Size(411, 37);
+            label11.TabIndex = 25;
+            label11.Text = "Danh sách kế hoạch chiếu phim ";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(18, 30);
+            label7.Name = "label7";
+            label7.Size = new Size(383, 45);
+            label7.TabIndex = 24;
+            label7.Text = "KẾ HOẠCH CHIẾU PHIM";
+            label7.Visible = false;
+            label7.Click += label7_Click;
+            // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToResizeColumns = false;
@@ -681,14 +905,14 @@ namespace QLRapChieuPhim
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, maPhimDataGridViewTextBoxColumn, maCumDataGridViewTextBoxColumn2, ngayKhoiChieuDataGridViewTextBoxColumn, ngayKetThucDataGridViewTextBoxColumn, ghiChuDataGridViewTextBoxColumn });
             dataGridView1.DataSource = keHoachBindingSource;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.Location = new Point(23, 174);
             dataGridView1.Name = "dataGridView1";
@@ -751,41 +975,6 @@ namespace QLRapChieuPhim
             // 
             keHoachBindingSource.DataSource = typeof(Entities.KeHoach);
             // 
-            // button7
-            // 
-            button7.BackColor = Color.FromArgb(240, 132, 132);
-            button7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.Location = new Point(1227, 90);
-            button7.Name = "button7";
-            button7.Size = new Size(195, 55);
-            button7.TabIndex = 26;
-            button7.Text = "Xóa";
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(18, 100);
-            label11.Name = "label11";
-            label11.Size = new Size(411, 37);
-            label11.TabIndex = 25;
-            label11.Text = "Danh sách kế hoạch chiếu phim ";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(18, 30);
-            label7.Name = "label7";
-            label7.Size = new Size(383, 45);
-            label7.TabIndex = 24;
-            label7.Text = "KẾ HOẠCH CHIẾU PHIM";
-            label7.Visible = false;
-            label7.Click += label7_Click;
-            // 
             // panel5theloai
             // 
             panel5theloai.BackColor = Color.FromArgb(224, 224, 224);
@@ -816,9 +1005,9 @@ namespace QLRapChieuPhim
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(484, 134);
+            textBox1.Location = new Point(464, 134);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 39);
+            textBox1.Size = new Size(300, 39);
             textBox1.TabIndex = 9;
             textBox1.TextChanged += textBox1_TextChanged_1;
             // 
@@ -908,151 +1097,6 @@ namespace QLRapChieuPhim
             label1.Size = new Size(162, 45);
             label1.TabIndex = 0;
             label1.Text = "THỂ LOẠI";
-            // 
-            // panel9lichchieu
-            // 
-            panel9lichchieu.BackColor = Color.FromArgb(224, 224, 224);
-            panel9lichchieu.Controls.Add(button18);
-            panel9lichchieu.Controls.Add(textBox4);
-            panel9lichchieu.Controls.Add(button22);
-            panel9lichchieu.Controls.Add(button21);
-            panel9lichchieu.Controls.Add(label36);
-            panel9lichchieu.Controls.Add(label34);
-            panel9lichchieu.Controls.Add(dataGridView5);
-            panel9lichchieu.Location = new Point(6, 6);
-            panel9lichchieu.Name = "panel9lichchieu";
-            panel9lichchieu.Size = new Size(1505, 857);
-            panel9lichchieu.TabIndex = 2;
-            panel9lichchieu.Visible = false;
-            panel9lichchieu.Paint += panel9lichchieu_Paint;
-            // 
-            // button18
-            // 
-            button18.BackColor = Color.FromArgb(240, 132, 132);
-            button18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button18.Location = new Point(1018, 110);
-            button18.Name = "button18";
-            button18.Size = new Size(190, 55);
-            button18.TabIndex = 9;
-            button18.Text = "Chỉnh sửa";
-            button18.UseVisualStyleBackColor = false;
-            button18.Click += button18_Click_1;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(522, 115);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(250, 39);
-            textBox4.TabIndex = 8;
-            textBox4.TextChanged += textBox4_TextChanged;
-            // 
-            // button22
-            // 
-            button22.BackColor = Color.FromArgb(240, 132, 132);
-            button22.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button22.Location = new Point(808, 110);
-            button22.Name = "button22";
-            button22.Size = new Size(185, 55);
-            button22.TabIndex = 7;
-            button22.Text = "Thêm";
-            button22.UseVisualStyleBackColor = false;
-            button22.Click += button22_Click;
-            // 
-            // button21
-            // 
-            button21.BackColor = Color.FromArgb(240, 132, 132);
-            button21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button21.Location = new Point(1236, 111);
-            button21.Name = "button21";
-            button21.Size = new Size(185, 55);
-            button21.TabIndex = 6;
-            button21.Text = "Xóa";
-            button21.UseVisualStyleBackColor = false;
-            button21.Click += button21_Click;
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label36.Location = new Point(54, 129);
-            label36.Name = "label36";
-            label36.Size = new Size(267, 37);
-            label36.TabIndex = 4;
-            label36.Text = "Danh sách lịch chiếu";
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label34.Location = new Point(54, 49);
-            label34.Name = "label34";
-            label34.Size = new Size(195, 45);
-            label34.TabIndex = 0;
-            label34.Text = "LỊCH CHIẾU";
-            // 
-            // dataGridView5
-            // 
-            dataGridView5.AutoGenerateColumns = false;
-            dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { Column19, maPhimDataGridViewTextBoxColumn1, maRapDataGridViewTextBoxColumn1, ngayChieuDataGridViewTextBoxColumn, chuoiMaSuatDataGridViewTextBoxColumn });
-            dataGridView5.DataSource = lichChieuBindingSource;
-            dataGridView5.EditMode = DataGridViewEditMode.EditOnEnter;
-            dataGridView5.Location = new Point(54, 195);
-            dataGridView5.Name = "dataGridView5";
-            dataGridView5.RowHeadersWidth = 82;
-            dataGridView5.RowTemplate.Height = 41;
-            dataGridView5.Size = new Size(1364, 550);
-            dataGridView5.TabIndex = 5;
-            dataGridView5.CellContentClick += dataGridView5_CellContentClick;
-            // 
-            // Column19
-            // 
-            Column19.HeaderText = "";
-            Column19.MinimumWidth = 10;
-            Column19.Name = "Column19";
-            Column19.Width = 50;
-            // 
-            // maPhimDataGridViewTextBoxColumn1
-            // 
-            maPhimDataGridViewTextBoxColumn1.DataPropertyName = "MaPhim";
-            maPhimDataGridViewTextBoxColumn1.HeaderText = "Mã phim";
-            maPhimDataGridViewTextBoxColumn1.MaxInputLength = 10;
-            maPhimDataGridViewTextBoxColumn1.MinimumWidth = 10;
-            maPhimDataGridViewTextBoxColumn1.Name = "maPhimDataGridViewTextBoxColumn1";
-            maPhimDataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // maRapDataGridViewTextBoxColumn1
-            // 
-            maRapDataGridViewTextBoxColumn1.DataPropertyName = "MaRap";
-            maRapDataGridViewTextBoxColumn1.HeaderText = "Mã rạp";
-            maRapDataGridViewTextBoxColumn1.MaxInputLength = 5;
-            maRapDataGridViewTextBoxColumn1.MinimumWidth = 10;
-            maRapDataGridViewTextBoxColumn1.Name = "maRapDataGridViewTextBoxColumn1";
-            maRapDataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // ngayChieuDataGridViewTextBoxColumn
-            // 
-            ngayChieuDataGridViewTextBoxColumn.DataPropertyName = "NgayChieu";
-            ngayChieuDataGridViewTextBoxColumn.HeaderText = "Ngày chiếu";
-            ngayChieuDataGridViewTextBoxColumn.MinimumWidth = 10;
-            ngayChieuDataGridViewTextBoxColumn.Name = "ngayChieuDataGridViewTextBoxColumn";
-            ngayChieuDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // chuoiMaSuatDataGridViewTextBoxColumn
-            // 
-            chuoiMaSuatDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            chuoiMaSuatDataGridViewTextBoxColumn.DataPropertyName = "ChuoiMaSuat";
-            chuoiMaSuatDataGridViewTextBoxColumn.HeaderText = "Chuỗi mã suất";
-            chuoiMaSuatDataGridViewTextBoxColumn.MinimumWidth = 10;
-            chuoiMaSuatDataGridViewTextBoxColumn.Name = "chuoiMaSuatDataGridViewTextBoxColumn";
-            // 
-            // lichChieuBindingSource
-            // 
-            lichChieuBindingSource.DataSource = typeof(Entities.LichChieu);
-            // 
-            // phimTheLoaiPhuBindingSource
-            // 
-            phimTheLoaiPhuBindingSource.DataSource = typeof(Entities.PhimTheLoaiPhu);
             // 
             // tabPage6
             // 
@@ -1344,7 +1388,7 @@ namespace QLRapChieuPhim
             // 
             phimBindingSource1.DataSource = typeof(Entities.Phim);
             // 
-            // Form2
+            // HomePage
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -1353,12 +1397,18 @@ namespace QLRapChieuPhim
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel4);
-            Name = "Form2";
+            Name = "HomePage";
             Text = "Form2";
             Load += Form2_Load;
             panel4.ResumeLayout(false);
+            panel9lichchieu.ResumeLayout(false);
+            panel9lichchieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lichChieuBindingSource).EndInit();
             panel10phim.ResumeLayout(false);
             panel10phim.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)phimTheLoaiPhuBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
             ((System.ComponentModel.ISupportInitialize)phimBindingSource).EndInit();
             panel8rap.ResumeLayout(false);
@@ -1377,11 +1427,6 @@ namespace QLRapChieuPhim
             panel5theloai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView7tl).EndInit();
             ((System.ComponentModel.ISupportInitialize)theLoaiBindingSource).EndInit();
-            panel9lichchieu.ResumeLayout(false);
-            panel9lichchieu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lichChieuBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)phimTheLoaiPhuBindingSource).EndInit();
             tabPage6.ResumeLayout(false);
             tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
@@ -1510,14 +1555,7 @@ namespace QLRapChieuPhim
         private DataGridViewTextBoxColumn tongGheDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn maCumDataGridViewTextBoxColumn1;
         private BindingSource phimTheLoaiPhuBindingSource;
-        private DataGridViewCheckBoxColumn Column26;
-        private DataGridViewTextBoxColumn maPhimDataGridViewTextBoxColumn2;
         private BindingSource phimBindingSource1;
-        private DataGridViewTextBoxColumn tenPhimDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn maTheLoaiChinhDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn thoiLuongDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn coLa3DDataGridViewCheckBoxColumn;
-        private DataGridViewCheckBoxColumn coLongTiengDataGridViewCheckBoxColumn;
         private Button button9;
         private Button button10;
         private Button button13;
@@ -1525,5 +1563,16 @@ namespace QLRapChieuPhim
         private Button button19;
         private Button button20;
         private Button button23;
+        private DataGridView dataGridView7;
+        private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private DataGridViewTextBoxColumn maTheLoaiDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn maPhimDataGridViewTextBoxColumn3;
+        private DataGridViewCheckBoxColumn Column26;
+        private DataGridViewTextBoxColumn maPhimDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn tenPhimDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn maTheLoaiChinhDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn thoiLuongDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn coLa3DDataGridViewCheckBoxColumn;
+        private DataGridViewCheckBoxColumn coLongTiengDataGridViewCheckBoxColumn;
     }
 }

@@ -124,6 +124,9 @@
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
+            Enter += button1_Click;
+            KeyDown += Login_KeyDown;
+            KeyPress += Login_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

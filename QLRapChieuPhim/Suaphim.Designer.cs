@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             button28 = new Button();
             comboBox6 = new ComboBox();
             comboBox7 = new ComboBox();
             textBox31 = new TextBox();
-            textBox32 = new TextBox();
-            textBox33 = new TextBox();
             textBox34 = new TextBox();
             textBox35 = new TextBox();
             label58 = new Label();
@@ -44,6 +43,10 @@
             label63 = new Label();
             label64 = new Label();
             label65 = new Label();
+            comboBox1 = new ComboBox();
+            theLoaiBindingSource = new BindingSource(components);
+            comboBox2 = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)theLoaiBindingSource).BeginInit();
             SuspendLayout();
             // 
             // button28
@@ -84,20 +87,6 @@
             textBox31.Name = "textBox31";
             textBox31.Size = new Size(183, 39);
             textBox31.TabIndex = 75;
-            // 
-            // textBox32
-            // 
-            textBox32.Location = new Point(371, 531);
-            textBox32.Name = "textBox32";
-            textBox32.Size = new Size(344, 39);
-            textBox32.TabIndex = 74;
-            // 
-            // textBox33
-            // 
-            textBox33.Location = new Point(367, 426);
-            textBox33.Name = "textBox33";
-            textBox33.Size = new Size(344, 39);
-            textBox33.TabIndex = 73;
             // 
             // textBox34
             // 
@@ -189,21 +178,43 @@
             label65.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             label65.Location = new Point(371, 119);
             label65.Name = "label65";
-            label65.Size = new Size(215, 37);
+            label65.Size = new Size(219, 37);
             label65.TabIndex = 63;
-            label65.Text = "Chỉnh sửa phim";
+            label65.Text = "Thêm phim mới";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(371, 426);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(242, 40);
+            comboBox1.TabIndex = 79;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // theLoaiBindingSource
+            // 
+            theLoaiBindingSource.DataSource = typeof(Entities.TheLoai);
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(371, 531);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(242, 40);
+            comboBox2.TabIndex = 80;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // Suaphim
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1374, 929);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(button28);
             Controls.Add(comboBox6);
             Controls.Add(comboBox7);
             Controls.Add(textBox31);
-            Controls.Add(textBox32);
-            Controls.Add(textBox33);
             Controls.Add(textBox34);
             Controls.Add(textBox35);
             Controls.Add(label58);
@@ -218,6 +229,7 @@
             Text = "Suaphim";
             FormClosed += Suaphim_FormClosed;
             Load += Suaphim_Load;
+            ((System.ComponentModel.ISupportInitialize)theLoaiBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,8 +240,6 @@
         private ComboBox comboBox6;
         private ComboBox comboBox7;
         private TextBox textBox31;
-        private TextBox textBox32;
-        private TextBox textBox33;
         private TextBox textBox34;
         private TextBox textBox35;
         private Label label58;
@@ -240,5 +250,8 @@
         private Label label63;
         private Label label64;
         private Label label65;
+        private ComboBox comboBox1;
+        private BindingSource theLoaiBindingSource;
+        private ComboBox comboBox2;
     }
 }

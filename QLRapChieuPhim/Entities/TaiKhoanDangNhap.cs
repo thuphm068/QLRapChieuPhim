@@ -22,8 +22,8 @@ namespace QLRapChieuPhim.Entities
         [Required] 
         public DateTime NgaySinh { get; set; } = DateTime.Now;
         [Required] 
-        [MaxLength(12)]
-        public string CCCD { get; set; } = string.Empty;
+        [MaxLength(20)]
+        public string ChucVu { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(10)]

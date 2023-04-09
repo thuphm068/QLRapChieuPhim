@@ -34,7 +34,11 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
         {
             try
             {
+
+                
+
                 var result =  _qLRapChieuPhimDbContext.Set<TEntity>().Add(entity);
+
 
                 _qLRapChieuPhimDbContext.SaveChanges();
 
@@ -42,7 +46,7 @@ namespace QLRapChieuPhim.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + " " + "Thêm thất bại.");
                 return false;
                 throw new Exception(ex.Message);
             }

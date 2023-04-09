@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace QLRapChieuPhim
 {
-    public partial class Form2 : Form
+    public partial class HomePage : Form
     {
-        private static readonly QLRapChieuPhimDbContext qLRapChieuPhimDbContext = new QLRapChieuPhimDbContext();
+        public static readonly QLRapChieuPhimDbContext qLRapChieuPhimDbContext = new QLRapChieuPhimDbContext();
         Repository<PhimTheLoaiPhu> _phimtheloaiphus = new Repository<PhimTheLoaiPhu>(qLRapChieuPhimDbContext);
         Repository<SuatChieu> _suatchieus = new Repository<SuatChieu>(qLRapChieuPhimDbContext);
         Repository<Rap> _raps = new Repository<Rap>(qLRapChieuPhimDbContext);
@@ -26,29 +26,36 @@ namespace QLRapChieuPhim
         Repository<Phim> _phims = new Repository<Phim>(qLRapChieuPhimDbContext);
         Repository<TheLoai> _theloais = new Repository<TheLoai>(qLRapChieuPhimDbContext);
 
-        //Repository<> _s = new Repository<>(qLRapChieuPhimDbContext);
 
 
-        public TaiKhoanDangNhap TaiKhoanDangNhap { get; set; }
+        public static TaiKhoanDangNhap TaiKhoanDangNhap { get; set; }
 
 
 
-        public Form2()
+        public HomePage()
         {
             InitializeComponent();
-            // qLRapChieuPhimDbContext.CumRaps;
-            // _cumraps1.
+            label6.Text = TaiKhoanDangNhap.HoTen;
 
+            if (TaiKhoanDangNhap.ChucVu != "Quản lý")
+            {
+                comboBox1.Enabled = false;
+                button5.Enabled = false;
+            }
         }
 
-        public Form2(TaiKhoanDangNhap taiKhoanDangNhap)
+        public HomePage(TaiKhoanDangNhap taiKhoanDangNhap)
         {
             InitializeComponent();
-            // qLRapChieuPhimDbContext.CumRaps;
-            // _cumraps1.
             TaiKhoanDangNhap = taiKhoanDangNhap;
 
             label6.Text = taiKhoanDangNhap.HoTen;
+
+            if (TaiKhoanDangNhap.ChucVu != "Quản lý")
+            {
+                comboBox1.Enabled = false;
+                button5.Enabled = false;
+            }
         }
 
         void otherForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -97,10 +104,11 @@ namespace QLRapChieuPhim
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            // DataTable bindingList = _kehoachs.GetAll();
-            BindingList<KeHoach> bindingList = new BindingList<KeHoach>(_kehoachs.GetAll());
-            dataGridView1.DataSource = bindingList;
+
             textBox3.Init("Nhập mã phim/mã cụm");
+
+            BindingList<KeHoach> bindingList = new BindingList<KeHoach>(_kehoachs.GetAll().Where(x => x.MaCum == TaiKhoanDangNhap.MaCum).ToList());
+            dataGridView1.DataSource = bindingList;
 
 
         }
@@ -137,10 +145,15 @@ namespace QLRapChieuPhim
                 panel8rap.Visible = false;
                 panel10phim.Visible = false;
                 panel5theloai.Visible = false;
-                BindingList<CumRap> cumRaps = new BindingList<CumRap>(_cumraps.GetAll());
+                panel9lichchieu.Visible = false;
 
-                dataGridView2.DataSource = cumRaps;
                 textBox6.Init("Nhập mã cụm rạp");
+
+
+
+                BindingList<CumRap> cumRaps = new BindingList<CumRap>(
+                    _cumraps.GetAll());
+                dataGridView2.DataSource = cumRaps;
 
             }
             else
@@ -149,10 +162,13 @@ namespace QLRapChieuPhim
                 panel6kh.Visible = false;
                 panel10phim.Visible = false;
                 panel5theloai.Visible = false;
+                panel9lichchieu.Visible = false;
 
                 panel8rap.Visible = true;
-                dataGridView4.DataSource = _raps.GetAll();
                 textBox5.Init("Nhập mã rạp");
+
+
+                dataGridView4.DataSource = _raps.GetAll().Where(x => x.MaCum == TaiKhoanDangNhap.MaCum).ToList();
 
             }
 
@@ -171,6 +187,8 @@ namespace QLRapChieuPhim
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox4.Init("Nhập mã phim/mã rạp");
+
             dataGridView5.DataSource = _lichchieus.GetAll();
 
 
@@ -182,23 +200,14 @@ namespace QLRapChieuPhim
             panel8rap.Visible = false;
             panel9lichchieu.Visible = false;
             panel5theloai.Visible = false;
-
             panel10phim.Visible = true;
             button2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox2.Init("Nhập mã phim/tên phim");
             var phims = _phims.GetAll();
-            //var theloaiphus = _phimtheloaiphus.GetAll();
 
-            //var result = from phim in phims 
-            //             join theloai in theloaiphus
-            //             on phim.MaPhim equals theloai.MaPhim
-            //             select new {
-            //                 phim,
-            //                theloaiphu = theloai
-            //             };
             dataGridView6.DataSource = phims;
 
         }
@@ -215,8 +224,9 @@ namespace QLRapChieuPhim
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridView7tl.DataSource = _theloais.GetAll();
             textBox1.Init("Nhập mã thể loại");
+
+            dataGridView7tl.DataSource = _theloais.GetAll();
 
         }
 
@@ -246,7 +256,7 @@ namespace QLRapChieuPhim
 
         private void button22_Click(object sender, EventArgs e)
         {
-            Sualichchieu otherForm = new Sualichchieu();
+            Sualichchieu otherForm = new Sualichchieu(TaiKhoanDangNhap.MaCum);
             this.Hide();
             otherForm.Show();
         }
@@ -354,6 +364,7 @@ namespace QLRapChieuPhim
         private void button9_Click_1(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -371,100 +382,155 @@ namespace QLRapChieuPhim
 
         private void button7_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView1.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView1.Rows)
                 {
-                    var obj = (KeHoach)dvr.DataBoundItem;
 
-                    var deletedobject = qLRapChieuPhimDbContext.KeHoachs.FirstOrDefault(x => x.MaCum == obj.MaCum && x.MaPhim == obj.MaPhim && x.NgayKetThuc == obj.NgayKetThuc);
-                    //_kehoachs.Delete((KeHoach)dataGridView1.Rows[0].DataBoundItem);
-                    if (deletedobject == null) continue;
-                    _kehoachs.Delete(deletedobject);
-                    MessageBox.Show("Xóa thành công!");
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        var obj = (KeHoach)dvr.DataBoundItem;
+
+                        var deletedobject = qLRapChieuPhimDbContext.KeHoachs.FirstOrDefault(x => x.MaCum == obj.MaCum && x.MaPhim == obj.MaPhim && x.NgayKetThuc == obj.NgayKetThuc);
+                        if (deletedobject == null) continue;
+                        _kehoachs.Delete(deletedobject);
+                        MessageBox.Show("Xóa thành công!");
+                    }
+
                 }
-
+                qLRapChieuPhimDbContext.SaveChanges();
             }
-            qLRapChieuPhimDbContext.SaveChanges();
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView5.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView5.Rows)
                 {
-                    var obj = (LichChieu)dvr.DataBoundItem;
 
-                    var deletedobject = qLRapChieuPhimDbContext.LichChieus.FirstOrDefault(x => x.MaPhim == obj.MaPhim && x.MaRap == obj.MaRap && x.NgayChieu == obj.NgayChieu);
-                    //_kehoachs.Delete((KeHoach)dataGridView1.Rows[0].DataBoundItem);
-                    if (deletedobject == null) continue;
-                    _lichchieus.Delete(deletedobject);
-                    MessageBox.Show("Xóa thành công!");
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        var obj = (LichChieu)dvr.DataBoundItem;
+
+                        var deletedobject = qLRapChieuPhimDbContext.LichChieus.FirstOrDefault(x => x.MaPhim == obj.MaPhim && x.MaRap == obj.MaRap && x.NgayChieu == obj.NgayChieu);
+                        if (deletedobject == null) continue;
+                        _lichchieus.Delete(deletedobject);
+                        MessageBox.Show("Xóa thành công!");
+                    }
+
                 }
-
+                qLRapChieuPhimDbContext.SaveChanges();
             }
-            qLRapChieuPhimDbContext.SaveChanges();
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+
         }
 
 
         private async void button11_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView2.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView2.Rows)
                 {
-                    await _cumraps.Delete(((CumRap)dvr.DataBoundItem).MaCum);
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        await _cumraps.Delete(((CumRap)dvr.DataBoundItem).MaCum);
 
-                    MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show("Xóa thành công!");
+                    }
+
                 }
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
         }
 
         private async void button24_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView6.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView6.Rows)
                 {
-                    await _phims.Delete(((Phim)dvr.DataBoundItem).MaPhim);
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        await _phims.Delete(((Phim)dvr.DataBoundItem).MaPhim);
 
-                    MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show("Xóa thành công!");
+                    }
                 }
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+
         }
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView7tl.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView7tl.Rows)
                 {
-                    await _theloais.Delete(((TheLoai)dvr.DataBoundItem).MaTheLoai);
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        await _theloais.Delete(((TheLoai)dvr.DataBoundItem).MaTheLoai);
 
-                    MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show("Xóa thành công!");
+                    }
                 }
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
         }
 
         private async void button17_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dvr in dataGridView4.Rows)
+            DialogResult dialogResult = MessageBox.Show("Xác nhận xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (dvr.Cells[0].Value is not null)
+                foreach (DataGridViewRow dvr in dataGridView4.Rows)
                 {
-                    await _raps.Delete(((Rap)dvr.DataBoundItem).MaRap);
+                    if (dvr.Cells[0].Value is not null)
+                    {
+                        await _raps.Delete(((Rap)dvr.DataBoundItem).MaRap);
 
-                    MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show("Xóa thành công!");
+                    }
                 }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
             }
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
 
         }
 
@@ -516,7 +582,9 @@ namespace QLRapChieuPhim
             var list = _phims.GetAll();
             list = list
                 .Where(
-                x => x.MaPhim.ToUpper().Contains((textBox2.Text.ToUpper())))
+                x => x.MaPhim.ToUpper().Contains((textBox2.Text.ToUpper()))
+                ||
+                x.TenPhim.ToUpper().Contains((textBox2.Text.ToUpper())))
                 .ToList();
 
             dataGridView6.DataSource = list;
@@ -536,25 +604,44 @@ namespace QLRapChieuPhim
         private void button23_Click(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
+
 
         }
 
         private void button18_Click_1(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
 
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
 
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
             qLRapChieuPhimDbContext.SaveChanges();
+            MessageBox.Show("Chỉnh sửa thành công!");
 
+        }
+
+        private void dataGridView6_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var s = (DataGridView)sender;
+            var obj = s.SelectedCells;
+
+            var result = qLRapChieuPhimDbContext.PhimTheLoaiPhus.FirstOrDefault(x => x.MaPhim == dataGridView6.Rows[obj[0].RowIndex].Cells[1].Value.ToString());
+            var list = new List<PhimTheLoaiPhu>()
+            {
+                result
+            }
+                ;
+            dataGridView7.DataSource = list;
         }
     }
 }

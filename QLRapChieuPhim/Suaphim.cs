@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Azure.Core.HttpHeader;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 namespace QLRapChieuPhim
@@ -30,7 +31,7 @@ namespace QLRapChieuPhim
         {
             InitializeComponent();
             theloais = _theloais.GetAll();
-            comboBox1.DataSource = theloais.Select(x => x.MaTheLoai).ToList();
+            comboBox1.DataSource = theloais.Select(x => x.TenTheLoai).ToList();
 
         }
 
@@ -54,11 +55,18 @@ namespace QLRapChieuPhim
                 co3D = true;
             }
 
+
+            var matheloai = theloais.FirstOrDefault(x => x.TenTheLoai == comboBox1.SelectedItem.ToString());
+            if (matheloai == null)
+            {
+                return;
+            }
+
             var phim = new Phim
             {
                 MaPhim = textBox35.Text,
                 TenPhim = textBox34.Text,
-                MaTheLoaiChinh = comboBox1.SelectedItem.ToString(),
+                MaTheLoaiChinh = matheloai.MaTheLoai,
                 ThoiLuong = Int32.Parse(textBox31.Text),
                 CoLa3D = co3D,
                 CoLongTieng = coLongTieng,
@@ -66,10 +74,17 @@ namespace QLRapChieuPhim
             };
             var result = _phims.Add(phim);
 
+
+
+            var matheloaiphu = theloais.FirstOrDefault(x => x.TenTheLoai == comboBox2.SelectedItem.ToString());
+            if (matheloaiphu == null)
+            {
+                return;
+            }
             var phimtheloaiphu = new PhimTheLoaiPhu
             {
                 MaPhim = textBox35.Text,
-                MaTheLoai = comboBox2.SelectedItem.ToString(),
+                MaTheLoai = matheloaiphu.MaTheLoai,
             };
             result = _phimtheloaiphus.Add(phimtheloaiphu);
 
@@ -98,7 +113,7 @@ namespace QLRapChieuPhim
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.DataSource = theloais.Where(i => i.MaTheLoai != comboBox1.SelectedItem).Select(i => i.MaTheLoai).ToList();
+            comboBox2.DataSource = theloais.Where(i => i.TenTheLoai != comboBox1.SelectedItem).Select(i => i.TenTheLoai).ToList();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
